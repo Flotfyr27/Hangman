@@ -17,27 +17,39 @@
         app:srcCompat="@mipmap/ic_launcher" />
 
     <TableLayout
+        android:id="@+id/tableLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="207dp"
-        tools:layout_editor_absoluteY="568dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView"
-        app:layout_constraintBottom_toBottomOf="parent">
+        tools:layout_editor_absoluteX="207dp"
+        tools:layout_editor_absoluteY="568dp">
 
         <TableRow
+            android:id="@+id/Row1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent">
+        </TableRow>
+
 
         <TableRow
+            android:id="@+id/Row2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary">
+        </TableRow>
 
         <TableRow
+            android:id="@+id/Row3"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent" />
 
         <TableRow
+            android:id="@+id/Row4"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary" />
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
