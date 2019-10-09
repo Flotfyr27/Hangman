@@ -19,7 +19,7 @@
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView"
         tools:layout_editor_absoluteX="207dp"
@@ -30,6 +30,76 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorAccent">
+            <TextView
+                android:id="@+id/letterQ"
+                android:text="Q"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/letterW"
+                android:text="W"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/letterE"
+                android:text="E"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/letterR"
+                android:text="R"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/letterT"
+                android:text="T"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/letterY"
+                android:text="Y"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/letterU"
+                android:text="U"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/letterI"
+                android:text="I"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/letterO"
+                android:text="O"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/letterP"
+                android:text="P"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                />
         </TableRow>
 
 
@@ -38,6 +108,69 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorPrimary">
+            <TextView
+                android:id="@+id/letterA"
+                android:text="A"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/letterS"
+                android:text="S"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/letterD"
+                android:text="D"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/letterF"
+                android:text="F"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/letterG"
+                android:text="G"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/letterH"
+                android:text="H"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/letterJ"
+                android:text="J"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/letterK"
+                android:text="K"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/letterL"
+                android:text="L"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                />
         </TableRow>
 
         <TableRow
@@ -45,11 +178,5 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorAccent" />
-
-        <TableRow
-            android:id="@+id/Row4"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimary" />
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
