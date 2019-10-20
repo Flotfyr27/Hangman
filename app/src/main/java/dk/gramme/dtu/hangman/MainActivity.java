@@ -5,7 +5,6 @@ package dk.gramme.dtu.hangman;
  */
 
 import android.content.DialogInterface;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
