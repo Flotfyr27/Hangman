@@ -1,22 +1,27 @@
 package dk.gramme.dtu.hangman;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Galgelogik logic = new Galgelogik();
     ImageView galgePic;
     TextView letters[] = new TextView[29];
     TextView word;
+    AlertDialog alertDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,11 +67,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         word.setText(logic.getSynligtOrd().toUpperCase());
         if(logic.erSpilletSlut()){
             if(logic.erSpilletVundet()){
-                word.setText("Tillykke du har vundet! - " + logic.getOrdet().toUpperCase());
+                retryBtn("Tillykke du har vundet!", "Ordet var: " + logic.getOrdet().toUpperCase());
             }else{
-                word.setText("Du har tabt! Ordet var: " + logic.getOrdet().toUpperCase());
+                retryBtn("Du har tabt!", "Ordet var: " + logic.getOrdet().toUpperCase());
             }
+
         }
+    }
+
+    private void retryBtn(String title, String msg){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(title);
+        builder.setMessage(msg);
+
+            builder.setPositiveButton("Prøv igen?", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                    logic.nulstil();
+                }
+            });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     public static int getScreenWidth(){
