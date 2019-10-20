@@ -5,13 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     ImageView galgePic;
-    TextView letters[] = new TextView[28];
+    TextView letters[] = new TextView[29];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +21,18 @@ public class MainActivity extends AppCompatActivity {
         galgePic = findViewById(R.id.galgeView);
         galgePic.setImageResource(R.drawable.galge);
         initTextViewArray();
+        for(int i = 0; i < letters.length; i++){
+            letters[i].setOnClickListener(this);
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        for(int i = 0; i < letters.length; i++){
+            if(v.equals(letters[i])){
+                //Do something
+            }
+        }
     }
 
     public static int getScreenWidth(){
