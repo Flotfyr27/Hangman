@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Create image to correct size
+        //Make sure image is correct
         galgePic = findViewById(R.id.galgeView);
         galgePic.setImageResource(R.drawable.galge);
         initTextViewArray();
