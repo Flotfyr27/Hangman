@@ -25,20 +25,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/galge" />
-        <TextView
-            android:id="@+id/GuessWord"
-            android:text="HelloWorld"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="7"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
+        <!-- This layout will be in charge of the keyboard part of the app -->
         <LinearLayout
             android:id="@+id/Keyboard"
             android:layout_width="match_parent"
@@ -47,14 +34,27 @@
             android:layout_weight="6"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
             app:layout_constraintBottom_toBottomOf="parent">
+            <!-- Word to be guessed -->
+            <TextView
+                android:id="@+id/GuessWord"
+                android:text="HelloWorld"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+            <!--Top row of the keyboard is hardcoded into existence -->
             <LinearLayout
                 android:id="@+id/TopRow"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:layout_weight="8"
+                android:layout_weight="7"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/GuessWord"
@@ -143,12 +143,13 @@
 
 
             </LinearLayout>
+            <!--Middle row of the keyboard is hardcoded into existence -->
             <LinearLayout
                 android:id="@+id/MiddleRow"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:layout_weight="8"
+                android:layout_weight="7"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/Keyboard"
@@ -227,13 +228,13 @@
                     android:text="L" />
 
             </LinearLayout>
-
+            <!--Bottom row of the keyboard is hardcoded into existence -->
             <LinearLayout
                 android:id="@+id/BottomRow"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:layout_weight="8"
+                android:layout_weight="7"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/MiddleRow"
