@@ -27,6 +27,7 @@
             app:srcCompat="@drawable/galge" />
 
         <LinearLayout
+            android:id="@+id/Keyboard"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -42,20 +43,21 @@
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
+                android:layout_weight="10"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
             <LinearLayout
+                android:id="@+id/TopRow"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:layout_weight="1"
+                android:layout_weight="8"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/GuessWord"
-                app:layout_constraintBottom_toBottomOf="parent">
+                app:layout_constraintBottom_toTopOf="@id/MiddleRow">
 
                 <TextView
                     android:id="@+id/letterQ"
@@ -140,7 +142,90 @@
 
 
             </LinearLayout>
+            <LinearLayout
+                android:id="@+id/MiddleRow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Keyboard"
+                app:layout_constraintBottom_toBottomOf="@id/galgeLL">
 
+                <TextView
+                    android:id="@+id/letterA"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="A" />
+
+                <TextView
+                    android:id="@+id/letterS"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="S" />
+
+                <TextView
+                    android:id="@+id/letterD"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="D" />
+
+                <TextView
+                    android:id="@+id/letterF"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="F" />
+
+                <TextView
+                    android:id="@+id/letterG"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="G" />
+
+                <TextView
+                    android:id="@+id/letterH"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="H" />
+
+                <TextView
+                    android:id="@+id/letterJ"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="J" />
+
+                <TextView
+                    android:id="@+id/letterK"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="K" />
+
+                <TextView
+                    android:id="@+id/letterL"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="L" />
+
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
