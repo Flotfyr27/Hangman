@@ -16,10 +16,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    //Creates all the variables that will be needed a lot throughout the app
     Galgelogik logic = new Galgelogik();
     ImageView galgePic;
     TextView letters[] = new TextView[29];
     TextView word;
+    //Implementation of the onCreate method
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,15 +39,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             letters[i].setOnClickListener(this);
         }
     }
-
+//Implementation of the onClick method for the textviews
     @Override
     public void onClick(View v) {
+        //Go through all of the views in the array to identify which button was pushed
         for(int i = 0; i < letters.length; i++){
+            //If the button exists, has not been pressed, and the game is not finished; continue
             if(v.equals(letters[i]) && letters[i].getCurrentTextColor() == Color.BLACK && !logic.erSpilletSlut()){
+                //Guess at a letter
                 logic.gætBogstav(letters[i].getText().toString().toLowerCase());
+                //If letter was correct, colour it green
                 if(logic.erSidsteBogstavKorrekt()){
                     letters[i].setTextColor(Color.GREEN);
-                }else {
+                }else {// if letter was wrong
+                    //Change picture of gallows according to number of wrong letters, also colour text red
                     int wrong = logic.getAntalForkerteBogstaver();
                     letters[i].setTextColor(Color.RED);
                     switch (wrong){
@@ -61,7 +68,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         }
+        //Change the displayed word to match most current
         word.setText(logic.getSynligtOrd().toUpperCase());
+        //If game is over create a dialog box to replay
         if(logic.erSpilletSlut()){
             if(logic.erSpilletVundet()){
                 retryBtn("Tillykke du har vundet!", "Ordet var: " + logic.getOrdet().toUpperCase());
@@ -71,37 +80,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
     }
-
+//Helper method to create an alert dialog
     private void retryBtn(String title, String msg){
+        //Create the buttons content
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(false);
         builder.setTitle(title);
         builder.setMessage(msg);
-
+//Set the button and its onClick method
             builder.setPositiveButton("Prøv igen?", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
+                    //Dismiss dialogue
                     dialog.dismiss();
+                    //Change all text back to black
                     for(int i = 0; i < letters.length; i++){
                         letters[i].setTextColor(Color.BLACK);
-                        galgePic.setImageResource(R.drawable.galge);
                     }
+                    //Reset image
+                    galgePic.setImageResource(R.drawable.galge);
+                    //Reset logic
                     logic.nulstil();
+                    //Reset shown word
                     word.setText(logic.getSynligtOrd().toUpperCase());
                 }
             });
+            //Create the dialogue box
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-
-    public static int getScreenWidth(){
-        return Resources.getSystem().getDisplayMetrics().widthPixels;
-    }
-
-    public static int getScreenHeight(){
-        return Resources.getSystem().getDisplayMetrics().heightPixels;
-    }
-
+//Helper method to initialise an array containing all the textviews
     private void initTextViewArray(){
         letters[0] = findViewById(R.id.letterA);
         letters[1] = findViewById(R.id.letterB);
