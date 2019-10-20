@@ -11,8 +11,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    Galgelogik logic = new Galgelogik();
     ImageView galgePic;
     TextView letters[] = new TextView[29];
+    TextView word;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +22,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Make sure image is correct
         galgePic = findViewById(R.id.galgeView);
         galgePic.setImageResource(R.drawable.galge);
+        //Access word to be guessed
+        word = findViewById(R.id.GuessWord);
+        word.setText(logic.getSynligtOrd());
+        //Add onClickListeners
         initTextViewArray();
         for(int i = 0; i < letters.length; i++){
             letters[i].setOnClickListener(this);
