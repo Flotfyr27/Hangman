@@ -20,11 +20,24 @@
             android:id="@+id/galgeView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="3"
+            android:layout_weight="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/galge" />
+        <TextView
+            android:id="@+id/GuessWord"
+            android:text="HelloWorld"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
         <LinearLayout
             android:id="@+id/Keyboard"
@@ -36,18 +49,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent">
-            <TextView
-                android:id="@+id/GuessWord"
-                android:text="HelloWorld"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="10"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
             <LinearLayout
                 android:id="@+id/TopRow"
                 android:layout_width="match_parent"
