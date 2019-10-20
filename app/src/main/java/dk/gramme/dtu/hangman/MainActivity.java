@@ -3,8 +3,10 @@ package dk.gramme.dtu.hangman;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -24,10 +26,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         galgePic.setImageResource(R.drawable.galge);
         //Access word to be guessed
         word = findViewById(R.id.GuessWord);
-        word.setText(logic.getSynligtOrd());
+        word.setText(logic.getSynligtOrd().toUpperCase());
+        logic.logStatus();
         //Add onClickListeners
         initTextViewArray();
         for(int i = 0; i < letters.length; i++){
+            letters[i].setTextColor(Color.BLACK);
             letters[i].setOnClickListener(this);
         }
     }
@@ -35,8 +39,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         for(int i = 0; i < letters.length; i++){
-            if(v.equals(letters[i])){
-                //Do something
+            if(v.equals(letters[i]) && letters[i].getCurrentTextColor() == Color.BLACK && !logic.erSpilletSlut()){
+                logic.gætBogstav(letters[i].getText().toString().toLowerCase());
+                if(logic.erSidsteBogstavKorrekt()){
+                    letters[i].setTextColor(Color.GREEN);
+                }else {
+                    int wrong = logic.getAntalForkerteBogstaver();
+                    letters[i].setTextColor(Color.RED);
+                    switch (wrong){
+                        case 0: galgePic.setImageResource(R.drawable.galge); break;
+                        case 1: galgePic.setImageResource(R.drawable.forkert1); break;
+                        case 2: galgePic.setImageResource(R.drawable.forkert2); break;
+                        case 3: galgePic.setImageResource(R.drawable.forkert3); break;
+                        case 4: galgePic.setImageResource(R.drawable.forkert4); break;
+                        case 5: galgePic.setImageResource(R.drawable.forkert5); break;
+                        case 6: galgePic.setImageResource(R.drawable.forkert6); break;
+                    }
+
+                }
+            }
+        }
+        word.setText(logic.getSynligtOrd().toUpperCase());
+        if(logic.erSpilletSlut()){
+            if(logic.erSpilletVundet()){
+                word.setText("Tillykke du har vundet! - " + logic.getOrdet().toUpperCase());
+            }else{
+                word.setText("Du har tabt! Ordet var: " + logic.getOrdet().toUpperCase());
             }
         }
     }
