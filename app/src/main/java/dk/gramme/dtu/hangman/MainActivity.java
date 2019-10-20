@@ -3,18 +3,20 @@ package dk.gramme.dtu.hangman;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.res.Resources;
-import android.graphics.Point;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.Display;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
+    ImageView galgePic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //Create image to correct size
+        galgePic = findViewById(R.id.galgeView);
+        galgePic.setImageResource(R.drawable.galge);
     }
 
     public static int getScreenWidth(){
