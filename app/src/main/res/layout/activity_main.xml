@@ -240,6 +240,11 @@
                 app:layout_constraintTop_toBottomOf="@id/MiddleRow"
                 app:layout_constraintBottom_toBottomOf="@id/Keyboard">
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
                 <TextView
                     android:id="@+id/letterZ"
                     android:layout_width="match_parent"
@@ -295,6 +300,12 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="M" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
