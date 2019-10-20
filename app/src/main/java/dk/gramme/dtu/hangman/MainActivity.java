@@ -84,7 +84,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     dialog.dismiss();
+                    for(int i = 0; i < letters.length; i++){
+                        letters[i].setTextColor(Color.BLACK);
+                        galgePic.setImageResource(R.drawable.galge);
+                    }
                     logic.nulstil();
+                    word.setText(logic.getSynligtOrd().toUpperCase());
                 }
             });
         AlertDialog dialog = builder.create();
