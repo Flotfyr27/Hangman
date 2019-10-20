@@ -1,27 +1,25 @@
 package dk.gramme.dtu.hangman;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
+/**
+ * @author https://github.com/Flotfyr27
+ * Software Engineering student @ DTU 2019
+ */
 
 import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Galgelogik logic = new Galgelogik();
     ImageView galgePic;
     TextView letters[] = new TextView[29];
     TextView word;
-    AlertDialog alertDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Access word to be guessed
         word = findViewById(R.id.GuessWord);
         word.setText(logic.getSynligtOrd().toUpperCase());
-        logic.logStatus();
         //Add onClickListeners
         initTextViewArray();
         for(int i = 0; i < letters.length; i++){
