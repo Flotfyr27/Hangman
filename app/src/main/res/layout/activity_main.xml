@@ -139,6 +139,13 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="P" />
+                <TextView
+                    android:id="@+id/letterÅ"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Å" />
 
 
 
@@ -226,6 +233,22 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="L" />
+
+                <TextView
+                    android:id="@+id/letterÆ"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Æ" />
+
+                <TextView
+                    android:id="@+id/letterØ"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Ø" />
 
             </LinearLayout>
             <!--Bottom row of the keyboard is hardcoded into existence -->
