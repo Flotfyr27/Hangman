@@ -1,6 +1,9 @@
 package dk.gramme.dtu.hangman;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -32,7 +35,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         word = v.findViewById(R.id.GuessWord);
         galgePic = v.findViewById(R.id.galgeView);
         logic = ((MainActivity)getActivity()).getLogic();
-
+        logic.nulstil();
         word.setText(logic.getSynligtOrd().toUpperCase());
         return v;
     }
@@ -69,11 +72,39 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         //If game is over create a dialogue box to replay
         if(logic.erSpilletSlut()){
             if(logic.erSpilletVundet()){
-                //Add button to congratulate
+                retryBtn("Tillykke du har vundet!", "Ordet var: " + logic.getOrdet().toUpperCase(),"Next", getContext());
             }else{
-                //Add button to mock the player
+                retryBtn("Du har tabt!", "Ordet var: " + logic.getOrdet().toUpperCase(), "Prøv igen", getContext());
             }
         }
+    }
+
+    public void retryBtn(String title, String msg, String btnMsg, Context context){
+        //Create button content
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setCancelable(false).setTitle(title).setMessage(msg);
+        //Set buttons onClick method
+        builder.setPositiveButton(btnMsg, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //Dismiss dialogue
+                dialog.dismiss();
+                //Change text to black
+                for(int i = 0; i < lettersID.length; i++){
+                    ((TextView) getView().findViewById(lettersID[i])).setTextColor(Color.BLACK);
+                }
+                //Reset image
+                galgePic.setImageResource(R.drawable.galge);
+                //TODO: Add points for round
+                //Reset logic
+                logic.nulstil();
+                //Reset shown word
+                word.setText(logic.getSynligtOrd().toUpperCase());
+            }
+        });
+        //Create the dialogue box
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
 
