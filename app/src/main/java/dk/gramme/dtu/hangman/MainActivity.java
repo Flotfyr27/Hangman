@@ -4,16 +4,10 @@ package dk.gramme.dtu.hangman;
  * Software Engineering student @ DTU 2019
  */
 
-import android.content.DialogInterface;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -29,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new HomeFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new dk.gramme.dtu.hangman.HomeFragment()).commit();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -38,9 +32,9 @@ public class MainActivity extends AppCompatActivity {
             Fragment selectedFragment = null;
 
             switch (menuItem.getItemId()) {
-                case R.id.nav_home: selectedFragment = new HomeFragment(); break;
-                case R.id.nav_highscore: selectedFragment = new HighscoreFragment(); break;
-                case R.id.nav_settings: selectedFragment = new SettingsFragment(); break;
+                case R.id.nav_home: selectedFragment = new dk.gramme.dtu.hangman.HomeFragment(); break;
+                case R.id.nav_highscore: selectedFragment = new dk.gramme.dtu.hangman.HighscoreFragment(); break;
+                case R.id.nav_settings: selectedFragment = new dk.gramme.dtu.hangman.SettingsFragment(); break;
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, selectedFragment).commit();
 
