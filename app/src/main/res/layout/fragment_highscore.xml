@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:text="@string/highscoreTitle"
         android:textSize="30sp"
-        android:gravity="center_horizontal"/>
+        android:gravity="center_horizontal"
+        android:padding="10dp"/>
     <!-- Single user -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,7 +37,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="1029pt"
+                android:text="1337"
+                android:textSize="20sp"
+                android:gravity="end"
+                android:padding="1dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="pts"
                 android:textSize="20sp"
                 android:gravity="end"/>
     </LinearLayout>
