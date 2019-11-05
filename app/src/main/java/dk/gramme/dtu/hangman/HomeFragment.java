@@ -33,7 +33,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         galgePic = v.findViewById(R.id.galgeView);
         logic = ((MainActivity)getActivity()).getLogic();
 
-        word.setText(logic.getSynligtOrd());
+        word.setText(logic.getSynligtOrd().toUpperCase());
         return v;
     }
 //Implementation of the onClick method for the TextViews
@@ -66,6 +66,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         }
         //Change the displayed word to match most current
         word.setText(logic.getSynligtOrd().toUpperCase());
+        //If game is over create a dialogue box to replay
+        if(logic.erSpilletSlut()){
+            if(logic.erSpilletVundet()){
+                //Add button to congratulate
+            }else{
+                //Add button to mock the player
+            }
+        }
     }
 
 
