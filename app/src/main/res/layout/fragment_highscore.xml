@@ -7,4 +7,38 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/highscoreTitle"
+        android:textSize="30sp"
+        android:gravity="center_horizontal"/>
+    <!-- Single user -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:padding="3dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/highscore_placement"
+                android:textSize="20sp"
+                android:gravity="start"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Best player N/A"
+                android:textSize="20sp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="1029pt"
+                android:textSize="20sp"
+                android:gravity="end"/>
+    </LinearLayout>
+    <!-- single user ended -->
 </LinearLayout>
