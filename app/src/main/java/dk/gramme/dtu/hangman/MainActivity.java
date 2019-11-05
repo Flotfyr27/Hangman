@@ -19,10 +19,10 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
     ImageView galgepic;
-    Galgelogik logic = new Galgelogik();
+    private static final Galgelogik logic = new Galgelogik();
     TextView letters[] = new TextView[29];
     TextView word;
 
@@ -36,6 +36,9 @@ public class MainActivity extends AppCompatActivity{
         getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new dk.gramme.dtu.hangman.HomeFragment()).commit();
 
 
+    }
+    public static Galgelogik getLogic(){
+        return logic;
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -74,36 +77,4 @@ public class MainActivity extends AppCompatActivity{
         dialog.show();
     }
 
-    //Helper method to initialise an array containing all the textviews
-    private void initTextViewArray(){
-        letters[0] = findViewById(R.id.letterA);
-        letters[1] = findViewById(R.id.letterB);
-        letters[2] = findViewById(R.id.letterC);
-        letters[3] = findViewById(R.id.letterD);
-        letters[4] = findViewById(R.id.letterE);
-        letters[5] = findViewById(R.id.letterF);
-        letters[6] = findViewById(R.id.letterG);
-        letters[7] = findViewById(R.id.letterH);
-        letters[8] = findViewById(R.id.letterI);
-        letters[9] = findViewById(R.id.letterJ);
-        letters[10] = findViewById(R.id.letterK);
-        letters[11] = findViewById(R.id.letterL);
-        letters[12] = findViewById(R.id.letterM);
-        letters[13] = findViewById(R.id.letterN);
-        letters[14] = findViewById(R.id.letterO);
-        letters[15] = findViewById(R.id.letterP);
-        letters[16] = findViewById(R.id.letterQ);
-        letters[17] = findViewById(R.id.letterR);
-        letters[18] = findViewById(R.id.letterS);
-        letters[19] = findViewById(R.id.letterT);
-        letters[20] = findViewById(R.id.letterU);
-        letters[21] = findViewById(R.id.letterV);
-        letters[22] = findViewById(R.id.letterW);
-        letters[23] = findViewById(R.id.letterX);
-        letters[24] = findViewById(R.id.letterY);
-        letters[25] = findViewById(R.id.letterZ);
-        letters[26] = findViewById(R.id.letterÆ);
-        letters[27] = findViewById(R.id.letterØ);
-        letters[28] = findViewById(R.id.letterÅ);
-    }
 }

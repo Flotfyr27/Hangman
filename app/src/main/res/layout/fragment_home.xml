@@ -65,8 +65,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Q"
-                    android:onClick="onClickKeyboard"/>
+                    android:text="Q"/>
 
                 <TextView
                     android:id="@+id/letterW"
@@ -74,8 +73,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="W"
-                    android:onClick="onClickKeyboard" />
+                    android:text="W" />
 
                 <TextView
                     android:id="@+id/letterE"
@@ -83,8 +81,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="E"
-                    android:onClick="onClickKeyboard" />
+                    android:text="E" />
 
                 <TextView
                     android:id="@+id/letterR"
@@ -92,8 +89,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="R"
-                    android:onClick="onClickKeyboard" />
+                    android:text="R" />
 
                 <TextView
                     android:id="@+id/letterT"
@@ -101,8 +97,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="T"
-                    android:onClick="onClickKeyboard" />
+                    android:text="T" />
 
                 <TextView
                     android:id="@+id/letterY"
@@ -110,8 +105,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Y"
-                    android:onClick="onClickKeyboard" />
+                    android:text="Y" />
 
                 <TextView
                     android:id="@+id/letterU"
@@ -119,8 +113,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="U"
-                    android:onClick="onClickKeyboard" />
+                    android:text="U" />
 
                 <TextView
                     android:id="@+id/letterI"
@@ -128,8 +121,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="I"
-                    android:onClick="onClickKeyboard" />
+                    android:text="I" />
 
                 <TextView
                     android:id="@+id/letterO"
@@ -137,8 +129,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="O"
-                    android:onClick="onClickKeyboard" />
+                    android:text="O" />
 
                 <TextView
                     android:id="@+id/letterP"
@@ -146,16 +137,14 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="P"
-                    android:onClick="onClickKeyboard" />
+                    android:text="P" />
                 <TextView
                     android:id="@+id/letterÅ"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Å"
-                    android:onClick="onClickKeyboard" />
+                    android:text="Å" />
 
 
 
@@ -178,8 +167,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="A"
-                    android:onClick="onClickKeyboard" />
+                    android:text="A" />
 
                 <TextView
                     android:id="@+id/letterS"
@@ -187,8 +175,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="S"
-                    android:onClick="onClickKeyboard" />
+                    android:text="S" />
 
                 <TextView
                     android:id="@+id/letterD"
@@ -196,8 +183,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="D"
-                    android:onClick="onClickKeyboard" />
+                    android:text="D" />
 
                 <TextView
                     android:id="@+id/letterF"
@@ -205,8 +191,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="F"
-                    android:onClick="onClickKeyboard" />
+                    android:text="F" />
 
                 <TextView
                     android:id="@+id/letterG"
@@ -214,8 +199,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="G"
-                    android:onClick="onClickKeyboard" />
+                    android:text="G" />
 
                 <TextView
                     android:id="@+id/letterH"
@@ -223,8 +207,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="H"
-                    android:onClick="onClickKeyboard" />
+                    android:text="H" />
 
                 <TextView
                     android:id="@+id/letterJ"
@@ -232,8 +215,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="J"
-                    android:onClick="onClickKeyboard" />
+                    android:text="J" />
 
                 <TextView
                     android:id="@+id/letterK"
@@ -241,8 +223,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="K"
-                    android:onClick="onClickKeyboard" />
+                    android:text="K" />
 
                 <TextView
                     android:id="@+id/letterL"
@@ -250,8 +231,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="L"
-                    android:onClick="onClickKeyboard" />
+                    android:text="L" />
 
                 <TextView
                     android:id="@+id/letterÆ"
@@ -259,8 +239,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Æ"
-                    android:onClick="onClickKeyboard" />
+                    android:text="Æ" />
 
                 <TextView
                     android:id="@+id/letterØ"
@@ -268,8 +247,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Ø"
-                    android:onClick="onClickKeyboard" />
+                    android:text="Ø" />
 
             </LinearLayout>
             <!--Bottom row of the keyboard is hardcoded into existence -->
@@ -295,8 +273,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Z"
-                    android:onClick="onClickKeyboard" />
+                    android:text="Z" />
 
                 <TextView
                     android:id="@+id/letterX"
@@ -304,8 +281,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="X"
-                    android:onClick="onClickKeyboard" />
+                    android:text="X" />
 
                 <TextView
                     android:id="@+id/letterC"
@@ -313,8 +289,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="C"
-                    android:onClick="onClickKeyboard" />
+                    android:text="C" />
 
                 <TextView
                     android:id="@+id/letterV"
@@ -322,8 +297,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="V"
-                    android:onClick="onClickKeyboard" />
+                    android:text="V" />
 
                 <TextView
                     android:id="@+id/letterB"
@@ -331,8 +305,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="B"
-                    android:onClick="onClickKeyboard" />
+                    android:text="B" />
 
                 <TextView
                     android:id="@+id/letterN"
@@ -340,8 +313,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="N"
-                    android:onClick="onClickKeyboard" />
+                    android:text="N" />
 
                 <TextView
                     android:id="@+id/letterM"
@@ -349,8 +321,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="M"
-                    android:onClick="onClickKeyboard" />
+                    android:text="M" />
 
                 <View
                     android:layout_width="match_parent"
