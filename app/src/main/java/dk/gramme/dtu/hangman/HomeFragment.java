@@ -108,7 +108,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                 }
                 //Reset image
                 galgePic.setImageResource(R.drawable.galge);
-                //TODO: insert method to save highscore
                 //Reset logic
                 logic.nulstil();
                 //Reset shown word
