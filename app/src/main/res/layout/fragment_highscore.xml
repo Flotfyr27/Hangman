@@ -20,39 +20,15 @@
         android:textSize="25sp"
         android:gravity="center_horizontal"
         android:padding="10dp"/>
-    <!-- Single user -->
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        android:padding="3dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/highscore_placement"
-                android:textSize="20sp"
-                android:gravity="start"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Best player N/A"
-                android:textSize="20sp"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="1337"
-                android:textSize="20sp"
-                android:gravity="end"
-                android:padding="1dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="pts"
-                android:textSize="20sp"
-                android:gravity="end"/>
-    </LinearLayout>
-    <!-- single user ended -->
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/LeaderBoardLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"/>
+
+    </ScrollView>
 </LinearLayout>
