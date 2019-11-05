@@ -23,6 +23,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     Galgelogik logic;
     ImageView galgePic;
     TextView word;
+    HighscoreLogic HS_logic;
 
     public HomeFragment(){
         //Required empty constructor
@@ -35,6 +36,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         word = v.findViewById(R.id.GuessWord);
         galgePic = v.findViewById(R.id.galgeView);
         logic = ((MainActivity)getActivity()).getLogic();
+        HS_logic = HighscoreLogic.getHighscoreLogic();
+        HS_logic.setPlayer("TEST PLAYER");//TODO: add link to Settings
         logic.nulstil();
         word.setText(logic.getSynligtOrd().toUpperCase());
         return v;
@@ -80,9 +83,19 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     }
 
     public void retryBtn(String title, String msg, String btnMsg, Context context){
+        final int score = HS_logic.calcScore(logic.getOrdet().length(), logic.getAntalForkerteBogstaver());
+        HS_logic.setScore(HS_logic.getScore() + score);
         //Create button content
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setCancelable(false).setTitle(title).setMessage(msg);
+        builder.setCancelable(false).setTitle(title);
+        //Create message for player
+        if(logic.erSpilletVundet()){
+            builder.setMessage(msg + HS_logic.generateHigscoreMessage(false, HS_logic.getPlayer(), logic.getOrdet(), logic.getAntalForkerteBogstaver()));
+        }else{
+            builder.setMessage(msg + HS_logic.generateHigscoreMessage(true, HS_logic.getPlayer(), logic.getOrdet(), logic.getAntalForkerteBogstaver()));
+            HS_logic.addToLeaderboard(HS_logic.getPlayer(), HS_logic.getScore());
+            HS_logic.resetScore();
+        }
         //Set buttons onClick method
         builder.setPositiveButton(btnMsg, new DialogInterface.OnClickListener() {
             @Override
@@ -95,7 +108,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                 }
                 //Reset image
                 galgePic.setImageResource(R.drawable.galge);
-                //TODO: Add points for round
+                //TODO: insert method to save highscore
                 //Reset logic
                 logic.nulstil();
                 //Reset shown word
