@@ -3,6 +3,7 @@
 
     <!-- Highscore -->
     <string name="highscoreTitle">LEADERBOARD</string>
+    <string name="highscoreSubTitle">Top 5</string>
     <string name="highscore_placement">1.</string>
 
     <!-- Settings -->

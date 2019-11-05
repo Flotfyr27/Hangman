@@ -12,6 +12,12 @@
         android:layout_height="wrap_content"
         android:text="@string/highscoreTitle"
         android:textSize="30sp"
+        android:gravity="center_horizontal"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/highscoreSubTitle"
+        android:textSize="25sp"
         android:gravity="center_horizontal"
         android:padding="10dp"/>
     <!-- Single user -->
