@@ -4,27 +4,17 @@ package dk.gramme.dtu.hangman;
  * Software Engineering student @ DTU 2019
  */
 
-import android.content.DialogInterface;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-
-    ImageView galgepic;
     private static final Galgelogik logic = new Galgelogik();
-    TextView letters[] = new TextView[29];
-    TextView word;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -33,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
-        getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new dk.gramme.dtu.hangman.HomeFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new dk.gramme.dtu.hangman.UsernameFragment()).commit();
 
 
     }
@@ -56,25 +46,5 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     };
-
-    //Helper method to create an alert dialog
-    private void retryBtn(String title, String msg){
-        //Create the buttons content
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(false);
-        builder.setTitle(title);
-        builder.setMessage(msg);
-//Set the button and its onClick method
-        builder.setPositiveButton("Prøv igen?", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                //Dismiss dialogue
-                dialog.dismiss();
-            }
-        });
-        //Create the dialogue box
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
 
 }

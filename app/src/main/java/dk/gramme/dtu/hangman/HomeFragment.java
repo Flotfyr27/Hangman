@@ -36,7 +36,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         galgePic = v.findViewById(R.id.galgeView);
         logic = ((MainActivity)getActivity()).getLogic();
         HS_logic = HighscoreLogic.getHighscoreLogic();
-        HS_logic.setPlayer("TEST PLAYER");//TODO: add link to Settings
         logic.nulstil();
         word.setText(logic.getSynligtOrd().toUpperCase());
         return v;

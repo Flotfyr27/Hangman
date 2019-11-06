@@ -24,9 +24,6 @@ HighscoreLogic highscoreLogic;
         ListView mListView = (ListView) v.findViewById(R.id.playerList);
         highscoreLogic = HighscoreLogic.getHighscoreLogic();
         ArrayList<PlayerHighscore> playerList;
-//        playerList.add(new PlayerHighscore("1.", "Swagmeister420", 420));
-//        playerList.add(new PlayerHighscore("2.", "TheLegend27", 69));
-//        playerList.add(new PlayerHighscore("3.", "Bob", 3));
         playerList = highscoreLogic.getList();
 
         PlayerListAdapter adapter = new PlayerListAdapter(getContext(), R.layout.player_highscore, playerList);
