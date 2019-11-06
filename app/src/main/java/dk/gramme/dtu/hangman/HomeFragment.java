@@ -144,6 +144,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         v.findViewById(R.id.letterV).setOnClickListener(this);
         v.findViewById(R.id.letterW).setOnClickListener(this);
         v.findViewById(R.id.letterX).setOnClickListener(this);
+        v.findViewById(R.id.letterZ).setOnClickListener(this);
         v.findViewById(R.id.letterY).setOnClickListener(this);
         v.findViewById(R.id.letterÆ).setOnClickListener(this);
         v.findViewById(R.id.letterØ).setOnClickListener(this);

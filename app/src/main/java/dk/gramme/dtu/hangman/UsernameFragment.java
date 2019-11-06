@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 public class UsernameFragment extends Fragment implements View.OnClickListener {
     Button btn;
     TextView tw;
+    SharedPreferences prefs;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -24,7 +25,13 @@ public class UsernameFragment extends Fragment implements View.OnClickListener {
         btn = v.findViewById(R.id.user_input_ok);
         tw = v.findViewById(R.id.user_input);
         btn.setOnClickListener(this);
-
+        prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String name = prefs.getString("username", null);
+        if(name != null){
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new HomeFragment()).commit();
+        }else{
+            return v;
+        }
         return v;
     }
 
@@ -34,7 +41,6 @@ public class UsernameFragment extends Fragment implements View.OnClickListener {
         if(name.length() < 1){
             Toast.makeText(getActivity(), "Name is not valid", Toast.LENGTH_SHORT).show();
         }else {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
             prefs.edit().putString("username", name).apply();
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new HomeFragment()).commit();
         }
