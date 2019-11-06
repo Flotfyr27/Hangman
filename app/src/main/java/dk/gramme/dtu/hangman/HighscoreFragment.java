@@ -25,7 +25,7 @@ HighscoreLogic highscoreLogic;
         highscoreLogic = HighscoreLogic.getHighscoreLogic();
         ArrayList<PlayerHighscore> playerList;
         playerList = highscoreLogic.getList();
-//TODO: add save to local txt file, add refresh button
+
         PlayerListAdapter adapter = new PlayerListAdapter(getContext(), R.layout.player_highscore, playerList);
         mListView.setAdapter(adapter);
 
