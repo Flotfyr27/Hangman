@@ -1,6 +1,14 @@
 package dk.gramme.dtu.hangman;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class HighscoreLogic {
     private int score;
@@ -44,6 +52,26 @@ public class HighscoreLogic {
         }else{
             leaderboard.put(name, score);
         }
+    }
+    public ArrayList<PlayerHighscore> getList(){
+        ArrayList<PlayerHighscore> playerList = new ArrayList<>();
+        List list = new LinkedList(leaderboard.entrySet());
+
+        Collections.sort(list, new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return ((Comparable) ((Map.Entry)(o1)).getValue()).compareTo(((Map.Entry) (o2)).getValue());
+            }
+        });
+        PlayerHighscore player = new PlayerHighscore();
+        for(Iterator it = list.iterator(); it.hasNext();){
+            Map.Entry entry = (Map.Entry) it.next();
+            player.setName(entry.getKey().toString());
+            player.setPoints(Integer.parseInt(entry.getValue().toString()));
+            String placement = (playerList.size()+1) + ".";
+            player.setPlacement(placement);
+        }
+        return playerList;
     }
 
     public int getCurrentHighscore(String player){

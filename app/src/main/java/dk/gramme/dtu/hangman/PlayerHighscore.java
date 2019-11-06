@@ -9,6 +9,21 @@ public class PlayerHighscore {
         mName = name;
         mPoints = points;
     }
+    public PlayerHighscore(){
+
+    }
+
+    public void setPlacement(String mPlacement) {
+        this.mPlacement = mPlacement;
+    }
+
+    public void setName(String mName) {
+        this.mName = mName;
+    }
+
+    public void setPoints(int mPoints) {
+        this.mPoints = mPoints;
+    }
 
     public String getPlacement() {
         return mPlacement;
