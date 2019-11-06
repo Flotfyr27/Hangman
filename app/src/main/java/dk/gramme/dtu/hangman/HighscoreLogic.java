@@ -21,7 +21,7 @@ public class HighscoreLogic {
     public static HighscoreLogic getHighscoreLogic(){
         return HIGHSCORE_LOGIC;
     }
-    public String generateHigscoreMessage(boolean gameFinished, String name, String word, int mistakes){
+    public String generateHighscoreMessage(boolean gameFinished, String name, String word, int mistakes){
         String msg;
         int temp = calcScore(word.length(), mistakes);
         //if game lost + beat highscore
@@ -70,6 +70,7 @@ public class HighscoreLogic {
             player.setPoints(Integer.parseInt(entry.getValue().toString()));
             String placement = (playerList.size()+1) + ".";
             player.setPlacement(placement);
+            playerList.add(player);
         }
         return playerList;
     }

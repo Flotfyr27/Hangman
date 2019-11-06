@@ -16,16 +16,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class HighscoreFragment extends Fragment {
-
+HighscoreLogic highscoreLogic;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_highscore, container, false);
         ListView mListView = (ListView) v.findViewById(R.id.playerList);
-        ArrayList<PlayerHighscore> playerList = new ArrayList<>();
-        playerList.add(new PlayerHighscore("1.", "Swagmeister420", 420));
-        playerList.add(new PlayerHighscore("2.", "TheLegend27", 69));
-        playerList.add(new PlayerHighscore("3.", "Bob", 3));
+        highscoreLogic = HighscoreLogic.getHighscoreLogic();
+        ArrayList<PlayerHighscore> playerList;
+//        playerList.add(new PlayerHighscore("1.", "Swagmeister420", 420));
+//        playerList.add(new PlayerHighscore("2.", "TheLegend27", 69));
+//        playerList.add(new PlayerHighscore("3.", "Bob", 3));
+        playerList = highscoreLogic.getList();
 
         PlayerListAdapter adapter = new PlayerListAdapter(getContext(), R.layout.player_highscore, playerList);
         mListView.setAdapter(adapter);
