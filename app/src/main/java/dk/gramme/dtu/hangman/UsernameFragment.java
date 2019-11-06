@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,8 +31,12 @@ public class UsernameFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         String name = tw.getText().toString();
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        prefs.edit().putString("username", name).apply();
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new HomeFragment()).commit();
+        if(name.length() < 1){
+            Toast.makeText(getActivity(), "Name is not valid", Toast.LENGTH_SHORT).show();
+        }else {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+            prefs.edit().putString("username", name).apply();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new HomeFragment()).commit();
+        }
     }
 }
