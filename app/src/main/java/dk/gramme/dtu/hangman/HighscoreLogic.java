@@ -2,13 +2,6 @@ package dk.gramme.dtu.hangman;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 public class HighscoreLogic {
     private int score;
@@ -21,7 +14,7 @@ public class HighscoreLogic {
     public static HighscoreLogic getHighscoreLogic(){
         return HIGHSCORE_LOGIC;
     }
-    public String generateHighscoreMessage(boolean gameFinished, String name, String word, int mistakes){
+    public String generateHighscoreMessage(String word, int mistakes){
         String msg;
         int temp = calcScore(word.length(), mistakes);
         msg = "\nDu fik: " + temp + " point med " + mistakes + " forkerte!" + "\nTotal score: " + score;

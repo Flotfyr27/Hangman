@@ -90,9 +90,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         builder.setCancelable(false).setTitle(title);
         //Create message for player
         if(logic.erSpilletVundet()){
-            builder.setMessage(msg + HS_logic.generateHighscoreMessage(false, HS_logic.getPlayer(), logic.getOrdet(), logic.getAntalForkerteBogstaver()));
+            builder.setMessage(msg + HS_logic.generateHighscoreMessage(logic.getOrdet(), logic.getAntalForkerteBogstaver()));
         }else{
-            builder.setMessage(msg + HS_logic.generateHighscoreMessage(true, HS_logic.getPlayer(), logic.getOrdet(), logic.getAntalForkerteBogstaver()));
+            builder.setMessage(msg + HS_logic.generateHighscoreMessage(logic.getOrdet(), logic.getAntalForkerteBogstaver()));
             HS_logic.addToLeaderboard(HS_logic.getPlayer(), HS_logic.getScore());
             HS_logic.resetScore();
         }
