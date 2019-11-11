@@ -13,7 +13,7 @@ import java.util.Set;
 public class HighscoreLogic {
     private int score;
     private String player;
-    private HashMap<String, Integer> leaderboard = new HashMap<>();
+    private ArrayList<PlayerHighscore> leaderboard = new ArrayList<>();
     private static final HighscoreLogic HIGHSCORE_LOGIC = new HighscoreLogic();
 
     private HighscoreLogic(){}
@@ -44,43 +44,21 @@ public class HighscoreLogic {
     }
 
     public void addToLeaderboard(String name, int score){
-        if(leaderboard.containsKey(name)){
-            if(leaderboard.get(name) < score){
-                leaderboard.remove(name);
-                leaderboard.put(name, score);
-            }
-        }else{
-            leaderboard.put(name, score);
-        }
+            PlayerHighscore player = new PlayerHighscore();
+            player.setName(name);
+            player.setPoints(score);
+            leaderboard.add(player);
     }
     public ArrayList<PlayerHighscore> getList(){
-        ArrayList<PlayerHighscore> playerList = new ArrayList<>();
-        List list = new LinkedList(leaderboard.entrySet());
+        ArrayList<PlayerHighscore> playerList = leaderboard;
+        Collections.sort(playerList);
 
-        Collections.sort(list, new Comparator() {
-            @Override
-            public int compare(Object o1, Object o2) {
-                return ((Comparable) ((Map.Entry)(o1)).getValue()).compareTo(((Map.Entry) (o2)).getValue());
-            }
-        });
-        PlayerHighscore player = new PlayerHighscore();
-        for(Iterator it = list.iterator(); it.hasNext();){
-            Map.Entry entry = (Map.Entry) it.next();
-            player.setName(entry.getKey().toString());
-            player.setPoints(Integer.parseInt(entry.getValue().toString()));
-            String placement = (playerList.size()+1) + ".";
-            player.setPlacement(placement);
-            playerList.add(player);
-        }
         return playerList;
     }
 
     public int getCurrentHighscore(String player){
-        if(leaderboard.containsKey(player)){
-            return leaderboard.get(player);
-        }else{
-            return 0;
-        }
+    //TODO: Implement method with new leaderboard structure
+        return 0;
     }
 
     public int calcScore(int wordLength, int attempts){
