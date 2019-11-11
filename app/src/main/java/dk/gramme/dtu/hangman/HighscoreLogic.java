@@ -32,10 +32,33 @@ public class HighscoreLogic {
             leaderboard.add(player);
     }
     public ArrayList<PlayerHighscore> getList(){
-        ArrayList<PlayerHighscore> playerList = leaderboard;
-        Collections.sort(playerList);
+        leaderboard = sort(leaderboard);
 
-        return playerList;
+        return leaderboard;
+    }
+
+    public ArrayList<PlayerHighscore> sort(ArrayList<PlayerHighscore> highscores){
+        int arrayListSize = highscores.size();
+        PlayerHighscore tmp;
+        boolean sorted;
+        for(int i = 0; i < arrayListSize; i++){
+            sorted = true;
+            for (int j = 1; j < arrayListSize; j++) {
+                if(highscores.get(j-1).getPoints() < highscores.get(j).getPoints()){
+                    tmp = highscores.get(j-1);
+                    highscores.set(j-1, highscores.get(j));
+                    highscores.set(j, tmp);
+                    sorted = false;
+                }
+            }
+            if (sorted) break;
+        }
+
+        for(int i = 0; i < arrayListSize; i++){
+            highscores.get(i).setPlacement(Integer.toString(i + 1));
+        }
+
+        return highscores;
     }
 
 
