@@ -26,6 +26,7 @@ public class UsernameFragment extends Fragment implements View.OnClickListener {
         tw = v.findViewById(R.id.user_input);
         btn.setOnClickListener(this);
         prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        //Checks if any save data currently exists
         String name = prefs.getString("username", null);
         if(name != null){
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new HomeFragment()).commit();
@@ -37,6 +38,7 @@ public class UsernameFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        //Makes sure the player has entered a name before allowing to continue
         String name = tw.getText().toString();
         if(name.length() < 1){
             Toast.makeText(getActivity(), "Name is not valid", Toast.LENGTH_SHORT).show();

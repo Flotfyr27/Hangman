@@ -31,16 +31,13 @@ public class PlayerListAdapter extends ArrayAdapter<PlayerHighscore> {
         String name = getItem(position).getName();
         int points = getItem(position).getPoints();
 
-        //Create playerhighscore with info
-        PlayerHighscore playerHighscore = new PlayerHighscore(placement, name, points);
-
         LayoutInflater inflater = LayoutInflater.from(context);
         convertView = inflater.inflate(mResource, parent, false);
-
+        //Access views
         TextView twPlacement = convertView.findViewById(R.id.highscore_placement);
         TextView twName = convertView.findViewById(R.id.highscore_playerName);
         TextView twPoints = convertView.findViewById(R.id.highscore_points);
-
+        //Save data to views
         String pts = Integer.toString(points);
         twPlacement.setText(placement);
         twName.setText(name);

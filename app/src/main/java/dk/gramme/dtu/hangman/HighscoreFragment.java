@@ -35,12 +35,12 @@ HighscoreLogic highscoreLogic;
         prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         Gson gson = new Gson();
         String json = prefs.getString("scoreboard", null);
+        //Get type to convert from Json into
         Type type = new TypeToken<ArrayList<PlayerHighscore>>(){}.getType();
+        //Read saved data if any exists
         if (json != null && startup) {
             startup = false;
             ArrayList<PlayerHighscore> playerList = gson.fromJson(json, type);
-            System.out.println("TEST JSON INPUT2 -----");
-            System.out.println(json);
             PlayerListAdapter adapter = new PlayerListAdapter(getContext(), R.layout.player_highscore, playerList);
             mListView.setAdapter(adapter);
         }
@@ -53,12 +53,12 @@ HighscoreLogic highscoreLogic;
         highscoreLogic = HighscoreLogic.getHighscoreLogic();
         ArrayList<PlayerHighscore> playerList;
         Gson gson = new Gson();
+        //Pull data from SharedPreferences and convert from Json to PlayerHighscore objects
         String json = prefs.getString("scoreboard", "");
         Type type = new TypeToken<ArrayList<PlayerHighscore>>(){}.getType();
+        //Check to see if data pulled exists
         if(json != null && json.length() > 0) {
             playerList = gson.fromJson(json, type);
-            System.out.println("TEST JSON INPUT -----");
-            System.out.println(json);
             PlayerListAdapter adapter = new PlayerListAdapter(getContext(), R.layout.player_highscore, playerList);
             mListView.setAdapter(adapter);
         }

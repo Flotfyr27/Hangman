@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onPause() {
         super.onPause();
+        //Saves the scoreboard whenever this fragment is paused
         Gson gson = new Gson();
         String json = gson.toJson(HS_logic.getList());
         prefs.edit().putString("scoreboard", json).apply();
@@ -52,10 +53,12 @@ public class MainActivity extends AppCompatActivity {
             Fragment selectedFragment = null;
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
             String name = prefs.getString("username", null);
+            //Makes sure the username has been entered before the bottom navbar is usable
             if(name == null){
                 Toast.makeText(getApplicationContext(), "Indtast brugernavn", Toast.LENGTH_SHORT).show();
                 return false;
             }
+            //Switch to determine which navbar icon has been clicked on
                 switch (menuItem.getItemId()) {
                     case R.id.nav_home:
                         selectedFragment = new dk.gramme.dtu.hangman.HomeFragment();
@@ -67,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                         selectedFragment = new dk.gramme.dtu.hangman.SettingsFragment();
                         break;
                 }
+            //Change to selected fragment
                 getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, selectedFragment).commit();
 
                 return true;

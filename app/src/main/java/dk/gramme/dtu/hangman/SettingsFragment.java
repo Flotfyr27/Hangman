@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class SettingsFragment extends Fragment implements View.OnClickListener {
+public class SettingsFragment extends Fragment{
     HighscoreLogic highscoreLogic;
     TextView tw;
     @Nullable
@@ -29,9 +29,5 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         tw.setText(username);
         highscoreLogic.setPlayer(username);
         return v;
-    }
-
-    @Override
-    public void onClick(View v) {
     }
 }

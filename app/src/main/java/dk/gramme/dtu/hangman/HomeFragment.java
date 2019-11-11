@@ -53,14 +53,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onResume() {
         super.onResume();
+        //Sets the players name from the saved username
         playerName = prefs.getString("username", "You");
         HS_logic.setPlayer(playerName);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-
     }
 
     //Implementation of the onClick method for the TextViews

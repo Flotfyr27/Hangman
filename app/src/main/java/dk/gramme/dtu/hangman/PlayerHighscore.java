@@ -3,7 +3,7 @@ package dk.gramme.dtu.hangman;
 public class PlayerHighscore {
     private String mPlacement, mName;
     private int mPoints;
-
+//Constructor describing a player's highscore
     public PlayerHighscore(String placement, String name, int points){
         mPlacement = placement;
         mName = name;
