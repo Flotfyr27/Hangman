@@ -3,13 +3,17 @@ package dk.gramme.dtu.hangman;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+import com.google.gson.Gson;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,6 +29,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     ImageView galgePic;
     TextView word;
     HighscoreLogic HS_logic;
+    SharedPreferences prefs;
+    private String playerName;
 
     public HomeFragment(){
         //Required empty constructor
@@ -38,11 +44,26 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         galgePic = v.findViewById(R.id.galgeView);
         logic = getLogic();
         HS_logic = HighscoreLogic.getHighscoreLogic();
+        prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         logic.nulstil();
         word.setText(logic.getSynligtOrd().toUpperCase());
         return v;
     }
-//Implementation of the onClick method for the TextViews
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        playerName = prefs.getString("username", "You");
+        HS_logic.setPlayer(playerName);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+    }
+
+    //Implementation of the onClick method for the TextViews
     @Override
     public void onClick(View v) {
         TextView tw = (TextView) v;
@@ -93,7 +114,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
             builder.setMessage(msg + HS_logic.generateHighscoreMessage(logic.getOrdet(), logic.getAntalForkerteBogstaver()));
         }else{
             builder.setMessage(msg + HS_logic.generateHighscoreMessage(logic.getOrdet(), logic.getAntalForkerteBogstaver()));
-            HS_logic.addToLeaderboard(HS_logic.getPlayer(), HS_logic.getScore());
+            HS_logic.addToLeaderboard(HS_logic.getPlayer(), HS_logic.getScore(), getActivity());
+            Toast.makeText(getActivity(), "Leaderboard updated", Toast.LENGTH_SHORT).show();
             HS_logic.resetScore();
         }
         //Set buttons onClick method

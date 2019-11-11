@@ -1,5 +1,11 @@
 package dk.gramme.dtu.hangman;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -8,6 +14,7 @@ public class HighscoreLogic {
     private String player;
     private ArrayList<PlayerHighscore> leaderboard = new ArrayList<>();
     private static final HighscoreLogic HIGHSCORE_LOGIC = new HighscoreLogic();
+    SharedPreferences prefs;
 
     private HighscoreLogic(){}
 
@@ -25,16 +32,26 @@ public class HighscoreLogic {
         score = 0;
     }
 
-    public void addToLeaderboard(String name, int score){
+    public void addToLeaderboard(String name, int score, Context context){
             PlayerHighscore player = new PlayerHighscore();
             player.setName(name);
             player.setPoints(score);
             leaderboard.add(player);
+            saveDataToJSON(context);
     }
     public ArrayList<PlayerHighscore> getList(){
         leaderboard = sort(leaderboard);
 
         return leaderboard;
+    }
+
+    private void saveDataToJSON(Context context){
+        prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        Gson gson = new Gson();
+        String json = gson.toJson(getList());
+        prefs.edit().putString("scoreboard", json).apply();
+        System.out.println("TEST JSON----");
+        System.out.println(json);
     }
 
     public ArrayList<PlayerHighscore> sort(ArrayList<PlayerHighscore> highscores){

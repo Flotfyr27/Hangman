@@ -15,20 +15,32 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.gson.Gson;
 
 public class MainActivity extends AppCompatActivity {
     private static final Galgelogik logic = new Galgelogik();
+    private HighscoreLogic HS_logic;
+    private SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-
+        HS_logic = HighscoreLogic.getHighscoreLogic();
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new dk.gramme.dtu.hangman.UsernameFragment(), "USER_FRAG").commit();
 
 
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Gson gson = new Gson();
+        String json = gson.toJson(HS_logic.getList());
+        prefs.edit().putString("scoreboard", json).apply();
     }
     public static Galgelogik getLogic(){
         return logic;
