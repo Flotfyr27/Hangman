@@ -55,11 +55,13 @@ HighscoreLogic highscoreLogic;
         Gson gson = new Gson();
         String json = prefs.getString("scoreboard", "");
         Type type = new TypeToken<ArrayList<PlayerHighscore>>(){}.getType();
-        playerList = gson.fromJson(json, type);
-        System.out.println("TEST JSON INPUT -----");
-        System.out.println(json);
-        PlayerListAdapter adapter = new PlayerListAdapter(getContext(), R.layout.player_highscore, playerList);
-        mListView.setAdapter(adapter);
+        if(json != null && json.length() > 0) {
+            playerList = gson.fromJson(json, type);
+            System.out.println("TEST JSON INPUT -----");
+            System.out.println(json);
+            PlayerListAdapter adapter = new PlayerListAdapter(getContext(), R.layout.player_highscore, playerList);
+            mListView.setAdapter(adapter);
+        }
 
     }
 }
