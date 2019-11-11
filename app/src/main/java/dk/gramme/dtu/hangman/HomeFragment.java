@@ -15,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import static dk.gramme.dtu.hangman.MainActivity.getLogic;
+
 public class HomeFragment extends Fragment implements View.OnClickListener{
     int lettersID[] = {R.id.letterA, R.id.letterB, R.id.letterC, R.id.letterC, R.id.letterD, R.id.letterE, R.id.letterF, R.id.letterG, R.id.letterH, R.id.letterI, R.id.letterJ, R.id.letterK,
     R.id.letterL, R.id.letterM, R.id.letterN, R.id.letterO, R.id.letterP, R.id.letterQ, R.id.letterR, R.id.letterS, R.id.letterT, R.id.letterU, R.id.letterV, R.id.letterW, R.id.letterX,
@@ -34,7 +36,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         initTextViewArray(v);
         word = v.findViewById(R.id.GuessWord);
         galgePic = v.findViewById(R.id.galgeView);
-        logic = ((MainActivity)getActivity()).getLogic();
+        logic = getLogic();
         HS_logic = HighscoreLogic.getHighscoreLogic();
         logic.nulstil();
         word.setText(logic.getSynligtOrd().toUpperCase());
