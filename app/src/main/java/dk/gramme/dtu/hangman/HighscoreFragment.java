@@ -23,7 +23,7 @@ HighscoreLogic highscoreLogic;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_highscore, container, false);
-        mListView = (ListView) v.findViewById(R.id.playerList);
+        mListView = v.findViewById(R.id.playerList);
 
         return v;
     }

@@ -24,18 +24,7 @@ public class HighscoreLogic {
     public String generateHighscoreMessage(boolean gameFinished, String name, String word, int mistakes){
         String msg;
         int temp = calcScore(word.length(), mistakes);
-        //if game lost + beat highscore
-        if(gameFinished){
-            if(score > getCurrentHighscore(name)){
-                msg = "\nTotal score: " + score + "\nNy højeste score: " + score;
-                //if game lost - no beat
-            }else{
-                msg = "\nTotal score: " + score + "\nNuværende highscore: " + getCurrentHighscore(name);
-            }
-            //if game won
-        }else{
-            msg = "\nDu fik: " + temp + " point med " + mistakes + " forsøg!" + "\nTotal score: " + score + "\nNuværende highscore: " + getCurrentHighscore(name);
-        }
+        msg = "\nDu fik: " + temp + " point med " + mistakes + " forkerte!" + "\nTotal score: " + score;
 
         return msg;
     }
@@ -56,12 +45,11 @@ public class HighscoreLogic {
         return playerList;
     }
 
-    public int getCurrentHighscore(String player){
-    //TODO: Implement method with new leaderboard structure
-        return 0;
-    }
 
     public int calcScore(int wordLength, int attempts){
+        if(wordLength > attempts && attempts > 6){
+            return 0;
+        }
         int x = wordLength - attempts;
         if(x <= 0) return 0;
         return x;
