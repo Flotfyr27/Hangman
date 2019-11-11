@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Hangman by s164863</string>
+    <string name="app_name">s164863</string>
+
+    <!-- Highscore -->
+    <string name="highscoreTitle">LEADERBOARD</string>
+    <string name="highscoreSubTitle">Top 5</string>
+    <string name="highscore_placement">1.</string>
+
+    <!-- Settings -->
+    <string name="setting_title">SETTINGS</string>
+    <string name="setting_hintuser">Player1</string>
 </resources>
