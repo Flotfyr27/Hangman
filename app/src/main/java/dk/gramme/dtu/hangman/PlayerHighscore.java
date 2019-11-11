@@ -1,6 +1,6 @@
 package dk.gramme.dtu.hangman;
 
-public class PlayerHighscore {
+public class PlayerHighscore implements Comparable<PlayerHighscore>{
     private String mPlacement, mName;
     private int mPoints;
 
@@ -35,5 +35,10 @@ public class PlayerHighscore {
 
     public int getPoints() {
         return mPoints;
+    }
+
+    @Override
+    public int compareTo(PlayerHighscore player2){
+        return this.getPoints() - player2.getPoints();
     }
 }

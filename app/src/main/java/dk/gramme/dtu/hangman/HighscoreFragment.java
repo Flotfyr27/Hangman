@@ -17,11 +17,20 @@ import java.util.ArrayList;
 
 public class HighscoreFragment extends Fragment {
 HighscoreLogic highscoreLogic;
+    private ListView mListView;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_highscore, container, false);
-        ListView mListView = (ListView) v.findViewById(R.id.playerList);
+        mListView = (ListView) v.findViewById(R.id.playerList);
+
+        return v;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         highscoreLogic = HighscoreLogic.getHighscoreLogic();
         ArrayList<PlayerHighscore> playerList;
         playerList = highscoreLogic.getList();
@@ -29,6 +38,5 @@ HighscoreLogic highscoreLogic;
         PlayerListAdapter adapter = new PlayerListAdapter(getContext(), R.layout.player_highscore, playerList);
         mListView.setAdapter(adapter);
 
-        return v;
     }
 }
