@@ -56,11 +56,11 @@
     <ListView
         android:id="@+id/setting_wordlist"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="400dp"/>
     <Button
         android:id="@+id/setting_save"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:text="Gem"/>
 
 </LinearLayout>
