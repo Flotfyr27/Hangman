@@ -5,6 +5,7 @@ package dk.gramme.dtu.hangman;
  */
 
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.MenuItem;
@@ -17,10 +18,27 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     private static final Galgelogik logic = new Galgelogik();
     private HighscoreLogic HS_logic;
     private SharedPreferences prefs;
+    public static ArrayList<String> wordList;
+    public static MediaPlayer loseGamePlayer;
+    public static MediaPlayer winGamePlayer;
+    BottomNavigationView bottomNav;
+    String selectedUserName;
+
+    @Override
+    public void onBackPressed() {
+        if(selectedUserName != null) {
+            bottomNav.setSelectedItemId(R.id.nav_home);
+            getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new dk.gramme.dtu.hangman.HomeFragment()).commit();
+        }else{
+            Toast.makeText(getApplicationContext(), "Indtast brugernavn", Toast.LENGTH_SHORT).show();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -28,11 +46,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
         HS_logic = HighscoreLogic.getHighscoreLogic();
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new dk.gramme.dtu.hangman.UsernameFragment(), "USER_FRAG").commit();
-
-
+        wordList = new ArrayList<>();
+        loseGamePlayer = MediaPlayer.create(this, R.raw.womp);
+        winGamePlayer = MediaPlayer.create(this, R.raw.youwin);
     }
 
     @Override
@@ -53,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
             Fragment selectedFragment = null;
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
             String name = prefs.getString("username", null);
+            selectedUserName = name;
             //Makes sure the username has been entered before the bottom navbar is usable
             if(name == null){
                 Toast.makeText(getApplicationContext(), "Indtast brugernavn", Toast.LENGTH_SHORT).show();

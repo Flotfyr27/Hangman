@@ -4,6 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <!-- main layout for the game-->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/confettiAnimation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="false"
+        app:lottie_loop="true"
+        app:lottie_fileName="confetti.json"/>
     <LinearLayout
         android:id="@+id/galgeLL"
         android:layout_width="0dp"
