@@ -198,8 +198,4 @@ public class Galgelogik {
         System.out.println("muligeOrd = " + muligeOrd);
         nulstil();
     }
-    //Method added for need of available words
-    public ArrayList<String> hentMuligOrd(){
-        return muligeOrd;
-    }
 }
