@@ -6,13 +6,26 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="16dp">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_gravity="center_vertical">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/setting_title"
         android:gravity="center_horizontal"
-        android:textSize="30sp"/>
+        android:textSize="30sp"
+        android:layout_weight="1"/>
+    <Button
+        android:id="@+id/setting_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hjælp"
+        android:gravity="center_horizontal" />
+</LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
