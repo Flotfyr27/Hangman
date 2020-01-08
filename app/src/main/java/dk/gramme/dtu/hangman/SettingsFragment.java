@@ -34,6 +34,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
     ToggleButton toggleButton;
     Button saveBtn;
     ArrayAdapter<String> adapter;
+    Button helpBtn;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -50,7 +51,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         toggleButton = v.findViewById(R.id.setting_toggle);
         saveBtn = v.findViewById(R.id.setting_save);
         saveBtn.setOnClickListener(this);
-
+        helpBtn = v.findViewById(R.id.setting_help);
+        helpBtn.setOnClickListener(this);
         return v;
     }
 
@@ -83,6 +85,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                 adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, galgelogik.muligeOrd);
                 listView.setAdapter(adapter);
             }
+        }else if(v.getId() == R.id.setting_help){
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new dk.gramme.dtu.hangman.HelpFragment()).commit();
         }
     }
     //Class to handle downloads from DR.dk with AsyncTask
