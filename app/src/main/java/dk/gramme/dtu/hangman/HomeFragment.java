@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
@@ -21,6 +22,8 @@ import com.google.gson.Gson;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import java.io.IOException;
 
 import static dk.gramme.dtu.hangman.MainActivity.getLogic;
 
@@ -98,11 +101,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         //If game is over create a dialogue box to replay
         if(logic.erSpilletSlut()){
             if(logic.erSpilletVundet()){
+                MainActivity.winGamePlayer.start();
                 retryBtn("Tillykke du har vundet!", "Ordet var: " + logic.getOrdet().toUpperCase(),"Next", getContext());
                 galgePic.setVisibility(View.GONE);
                 lottieAnimationView.setVisibility(View.VISIBLE);
                 lottieAnimationView.playAnimation();
             }else{
+                MainActivity.loseGamePlayer.start();
                 retryBtn("Du har tabt!", "Ordet var: " + logic.getOrdet().toUpperCase(), "Prøv igen", getContext());
             }
         }

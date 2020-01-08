@@ -85,6 +85,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
             }
         }
     }
+    //Class to handle downloads from DR.dk with AsyncTask
     private class DRWordDownload extends AsyncTask<String, String, String>{
         @Override
         protected String doInBackground(String... params) {

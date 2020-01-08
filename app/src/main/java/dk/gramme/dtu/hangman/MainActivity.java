@@ -5,6 +5,7 @@ package dk.gramme.dtu.hangman;
  */
 
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.MenuItem;
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private HighscoreLogic HS_logic;
     private SharedPreferences prefs;
     public static ArrayList<String> wordList;
+    public static MediaPlayer loseGamePlayer;
+    public static MediaPlayer winGamePlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -35,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new dk.gramme.dtu.hangman.UsernameFragment(), "USER_FRAG").commit();
         wordList = new ArrayList<>();
-
+        loseGamePlayer = MediaPlayer.create(this, R.raw.womp);
+        winGamePlayer = MediaPlayer.create(this, R.raw.youwin);
     }
 
     @Override
