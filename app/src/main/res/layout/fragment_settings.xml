@@ -42,6 +42,7 @@
         android:gravity="left"
         />
     <ToggleButton
+        android:id="@+id/setting_toggle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textOff="Test Ord"
@@ -57,6 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <Button
+        android:id="@+id/setting_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Gem"/>
