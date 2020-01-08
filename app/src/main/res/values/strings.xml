@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">s164863</string>
+    <string name="app_name">s164863 Hangman</string>
 
     <!-- Highscore -->
     <string name="highscoreTitle">LEADERBOARD</string>
@@ -11,4 +11,6 @@
     <string name="setting_hintuser">Player1</string>
     <string name="hvordan_spiller_man">Hvordan spiller man?</string>
     <string name="help_howto">Galgespil er et spil for to eller flere spillere. Det er typisk spillet på papir eller en på en tavle. Spillet går ud på at gætte et ord eller en sætning, hvor kun antallet af bogstaver er kendt, lidt i stil med Lykkehjulet. Der gættes på skift et bogstav ad gangen, og korrekte bogstaver bliver placeret på de respektive pladser i ordet eller sætningen. For hver gang, der gættes forkert bliver der tegnet en del af en galge med en hængt mand på papiret eller tavlen. Opgaven går ud på gætte hele ordet eller sætningen inden tegningen bliver færdiggjort. Mængden af streger der bliver bliver tegnet for hvert forkert gæt, og tegningen kompleksitet kan varieres for at give spillerne mere eller mindre tid.</string>
+    <string name="brugernavn">Brugernavn:</string>
+    <string name="username_placeholder">brugernavn</string>
 </resources>
