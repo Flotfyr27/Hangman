@@ -34,5 +34,40 @@
             android:textSize="20sp"
             android:paddingLeft="2dp"/>
     </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ordvalg"
+        android:textSize="23dp"
+        android:gravity="left"
+        />
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/setting_radiogroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="left">
+        <RadioButton android:id="@+id/setting_radio_DR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DR"/>
+        <RadioButton android:id="@+id/setting_radio_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Test"/>
+        <RadioButton android:id="@+id/setting_radio_custom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Andet"/>
+    </RadioGroup>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tilgængelige ord:"
+        android:textSize="23dp"/>
+    <ListView
+        android:id="@+id/setting_wordlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

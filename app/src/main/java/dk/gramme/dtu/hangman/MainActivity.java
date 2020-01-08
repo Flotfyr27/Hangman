@@ -17,10 +17,13 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     private static final Galgelogik logic = new Galgelogik();
     private HighscoreLogic HS_logic;
     private SharedPreferences prefs;
+    public static ArrayList<String> wordList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -31,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new dk.gramme.dtu.hangman.UsernameFragment(), "USER_FRAG").commit();
-
+        wordList = new ArrayList<>();
 
     }
 

@@ -139,6 +139,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                 logic.nulstil();
                 //Reset shown word
                 word.setText(logic.getSynligtOrd().toUpperCase());
+                //Hide confetti and show the gallows
                 galgePic.setVisibility(View.VISIBLE);
                 lottieAnimationView.pauseAnimation();
                 lottieAnimationView.setVisibility(View.GONE);
