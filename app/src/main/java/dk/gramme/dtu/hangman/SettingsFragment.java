@@ -1,6 +1,5 @@
 package dk.gramme.dtu.hangman;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -11,19 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import java.util.ArrayList;
-
 import static dk.gramme.dtu.hangman.MainActivity.getLogic;
-import static dk.gramme.dtu.hangman.MainActivity.wordList;
 
 public class SettingsFragment extends Fragment implements View.OnClickListener {
     HighscoreLogic highscoreLogic;
@@ -82,6 +75,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                 galgelogik.muligeOrd.add("solsort");
                 galgelogik.muligeOrd.add("nitten");
                 galgelogik.nulstil();
+                //This is here because I didn't want to rewrite everything: source of inspiration https://stackoverflow.com/questions/3669325/notifydatasetchanged-example
                 adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, galgelogik.muligeOrd);
                 listView.setAdapter(adapter);
             }
@@ -104,12 +98,15 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         @Override
         protected void onPostExecute(String string) {
             progressDialog.dismiss();
+            //Removing words with 2 or less letters
             for(int i = galgelogik.muligeOrd.size()-1; i > 0; i--){
                 if(galgelogik.muligeOrd.get(i).length() < 3){
                     galgelogik.muligeOrd.remove(i);
                 }
             }
+            //Removes first word, because it was always empty?
             galgelogik.muligeOrd.remove(0);
+            //This is here because I didn't want to rewrite everything: source of inspiration https://stackoverflow.com/questions/3669325/notifydatasetchanged-example
             adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, galgelogik.muligeOrd);
             listView.setAdapter(adapter);
         }
