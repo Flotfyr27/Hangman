@@ -11,8 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.gson.Gson;
 
 import androidx.annotation.NonNull;
@@ -30,6 +33,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     TextView word;
     HighscoreLogic HS_logic;
     SharedPreferences prefs;
+    LottieAnimationView lottieAnimationView;
+    LinearLayout linearLayout;
     private String playerName;
 
     public HomeFragment(){
@@ -47,6 +52,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         logic.nulstil();
         word.setText(logic.getSynligtOrd().toUpperCase());
+        lottieAnimationView = v.findViewById(R.id.confettiAnimation);
+        lottieAnimationView.setAnimation("confetti.json");
         return v;
     }
 
@@ -92,6 +99,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         if(logic.erSpilletSlut()){
             if(logic.erSpilletVundet()){
                 retryBtn("Tillykke du har vundet!", "Ordet var: " + logic.getOrdet().toUpperCase(),"Next", getContext());
+                galgePic.setVisibility(View.GONE);
+                lottieAnimationView.setVisibility(View.VISIBLE);
+                lottieAnimationView.playAnimation();
             }else{
                 retryBtn("Du har tabt!", "Ordet var: " + logic.getOrdet().toUpperCase(), "Prøv igen", getContext());
             }
@@ -129,6 +139,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                 logic.nulstil();
                 //Reset shown word
                 word.setText(logic.getSynligtOrd().toUpperCase());
+                galgePic.setVisibility(View.VISIBLE);
+                lottieAnimationView.pauseAnimation();
+                lottieAnimationView.setVisibility(View.GONE);
             }
         });
         //Create the dialogue box
