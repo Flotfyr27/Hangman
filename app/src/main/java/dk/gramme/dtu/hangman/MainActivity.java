@@ -28,11 +28,16 @@ public class MainActivity extends AppCompatActivity {
     public static MediaPlayer loseGamePlayer;
     public static MediaPlayer winGamePlayer;
     BottomNavigationView bottomNav;
+    String selectedUserName;
 
     @Override
     public void onBackPressed() {
-        bottomNav.setSelectedItemId(R.id.nav_home);
-        getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new dk.gramme.dtu.hangman.HomeFragment()).commit();
+        if(selectedUserName != null) {
+            bottomNav.setSelectedItemId(R.id.nav_home);
+            getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new dk.gramme.dtu.hangman.HomeFragment()).commit();
+        }else{
+            Toast.makeText(getApplicationContext(), "Indtast brugernavn", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -67,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
             Fragment selectedFragment = null;
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
             String name = prefs.getString("username", null);
+            selectedUserName = name;
             //Makes sure the username has been entered before the bottom navbar is usable
             if(name == null){
                 Toast.makeText(getApplicationContext(), "Indtast brugernavn", Toast.LENGTH_SHORT).show();
