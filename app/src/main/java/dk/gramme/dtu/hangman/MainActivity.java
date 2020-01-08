@@ -27,6 +27,13 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<String> wordList;
     public static MediaPlayer loseGamePlayer;
     public static MediaPlayer winGamePlayer;
+    BottomNavigationView bottomNav;
+
+    @Override
+    public void onBackPressed() {
+        bottomNav.setSelectedItemId(R.id.nav_home);
+        getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new dk.gramme.dtu.hangman.HomeFragment()).commit();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -34,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
         HS_logic = HighscoreLogic.getHighscoreLogic();
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new dk.gramme.dtu.hangman.UsernameFragment(), "USER_FRAG").commit();
         wordList = new ArrayList<>();
