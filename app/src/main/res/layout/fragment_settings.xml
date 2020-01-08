@@ -41,25 +41,12 @@
         android:textSize="23dp"
         android:gravity="left"
         />
-    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/setting_radiogroup"
+    <ToggleButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="left">
-        <RadioButton android:id="@+id/setting_radio_DR"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="DR"/>
-        <RadioButton android:id="@+id/setting_radio_test"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Test"/>
-        <RadioButton android:id="@+id/setting_radio_custom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Andet"/>
-    </RadioGroup>
+        android:textOff="Test Ord"
+        android:textOn="DR"
+        />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -69,5 +56,9 @@
         android:id="@+id/setting_wordlist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gem"/>
 
 </LinearLayout>
